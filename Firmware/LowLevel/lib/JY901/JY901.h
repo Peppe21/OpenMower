@@ -141,7 +141,7 @@ class CJY901
 	struct SLonLat 		stcLonLat;
 	struct SGPSV 		stcGPSV;
 	
-    CJY901 (HardwareSerial *serial); 
+    CJY901 (SerialPIO *serial); 
 	
 	void begin(int baudrate = 9600);
 	// Call as often as possible to fetch data from serial
@@ -150,7 +150,7 @@ class CJY901
 	
 	
   private: 
-	HardwareSerial *serial;
+	SerialPIO *serial;
 	unsigned char ucRxBuffer[250];
 	unsigned char ucRxCnt = 0;	
 

@@ -1,7 +1,9 @@
 #include "JY901.h"
 #include "string.h"
 
-CJY901 ::CJY901(HardwareSerial *serial)
+
+//CJY901 ::CJY901(HardwareSerial *serial)
+CJY901 ::CJY901(SerialPIO *serial)
 {
 	this->serial = serial;
 }

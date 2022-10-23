@@ -2,15 +2,13 @@
 #include "pins.h"
 #include <JY901.h>
 
-CJY901 IMU(&Serial2);
+//SerialPIO(txpin, rxpin, fifosize)
+SerialPIO imuSerial(PIN_WT901_TX, PIN_WT901_RX, 250); // set hardware pin
+CJY901 IMU(&imuSerial);
 
 bool init_imu()
 {
-    Serial2.setRX(PIN_WT901_RX); // set hardware pin
-    Serial2.setTX(PIN_WT901_TX);
-
     IMU.begin();
-
     return true;
 }
 
