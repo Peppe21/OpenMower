@@ -41,10 +41,6 @@
 
 //This is used as a hack to use WT901 on MPU9250 Slot.
 #ifdef WT901_INSTEAD_OF_MPU9250
-#ifdef ENABLE_SOUND_MODULE
-#error you can not enable sound and have wt901 on sound port at the same time.
-#endif
-#define PIN_WT901_TX 16
-#define PIN_WT901_RX 17
-
+#define PIN_WT901_TX 17
+#define PIN_WT901_RX 16
 #endif
