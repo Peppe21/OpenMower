@@ -28,9 +28,6 @@
 
 #define BUFFERSIZE 100
 
-#define NR_SOUNDFILES 15        // Number of Soundfiles on SD-card
-
-
 
 class MP3Sound
 {
@@ -40,12 +37,12 @@ class MP3Sound
 
     public:
 
-                uint32_t anzSoundfiles;          // number of files stored on the SD-card
+                int16_t anzSoundfiles;          // number of files stored on the SD-card
                 bool     playing;
 
                 MP3Sound();
 
-                bool begin(int anzsoundsOnSD);      // init serial stream and soundmodule, anzsoundOnSD : maximum number of available soundfiles on the SD-card
+                bool begin();      // init serial stream and soundmodule, anzsoundOnSD : maximum number of available soundfiles on the SD-card
                 
                 void playSound(int soundNr);        // play soundfile number. This method writes soundfile nr in a list, the method processSounds() (has to run in loop) will play 
                                                     // the sounds according to the list
