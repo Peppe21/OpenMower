@@ -4,16 +4,18 @@
 
 #ifdef WT901_INSTEAD_OF_SOUND
 CJY901 IMU(&Serial2);
-Serial2.setRX(PIN_WT901_RX); // set hardware pin
-Serial2.setTX(PIN_WT901_TX);
 #elif WT901
-//SerialPIO(txpin, rxpin, fifosize)
 SerialPIO imuSerial(PIN_WT901_TX, PIN_WT901_RX, 250); // set hardware pin
 CJY901 IMU(&imuSerial);
 #endif
 
 bool init_imu()
 {
+    #ifdef WT901_INSTEAD_OF_SOUND
+    Serial2.setRX(PIN_WT901_RX); // set hardware pin
+    Serial2.setTX(PIN_WT901_TX);
+    #endif
+
     IMU.begin();
     return true;
 }
